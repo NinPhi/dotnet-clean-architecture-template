@@ -1,4 +1,4 @@
-﻿namespace Domain.Types.Abstractions;
+﻿namespace Domain.Abstractions;
 
 internal interface IReadRepository<TEntity>
     where TEntity : class, IEntity

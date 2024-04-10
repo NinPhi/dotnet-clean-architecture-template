@@ -10,8 +10,7 @@
     <Folder Include="Entities\" />
     <Folder Include="Repositories\" />
     <Folder Include="Services\" />
-    <Folder Include="Types\Enums\" />
-    <Folder Include="Types\Result\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
 
 </Project>

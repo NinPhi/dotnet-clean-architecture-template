@@ -1,6 +1,7 @@
 ﻿using Application.Extensions;
 using Infrastructure.Extensions;
 using Persistence.Extensions;
+using Web.Api.Services;
 
 namespace Web.Api.Extensions;
 
@@ -31,7 +32,15 @@ public static class DependencyInjection
                     Description = "Sample Web API Documentation",
                 });
             })
-            .AddControllers()
-            .Services;
+            .AddControllers().Services
+            .RegisterExceptionHandler();
+    }
+
+    private static IServiceCollection RegisterExceptionHandler(
+        this IServiceCollection services)
+    {
+        return services
+            .AddExceptionHandler<GlobalExceptionHandler>()
+            .AddProblemDetails();
     }
 }

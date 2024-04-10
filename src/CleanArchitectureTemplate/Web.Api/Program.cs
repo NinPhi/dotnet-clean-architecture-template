@@ -1,5 +1,3 @@
-using Web.Api.Extensions;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.RegisterServices(builder.Configuration);
@@ -13,6 +11,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseExceptionHandler();
 
 app.UseAuthorization();
 

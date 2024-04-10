@@ -1,6 +1,8 @@
 ﻿using Application.Contracts.Samples;
 using Application.Features.Samples.Add;
+using Application.Features.Samples.GetAll;
 using Application.Features.Samples.GetById;
+using Domain.Enums;
 
 namespace Web.Api.Controllers;
 
@@ -16,6 +18,25 @@ public class SampleController(ISender sender) : ControllerBase
     public async Task<IActionResult> GetById(long id)
     {
         var query = new GetSampleByIdQuery(id);
+
+        var result = await sender.Send(query);
+
+        if (result.IsError)
+            return BadRequest(result);
+
+        return Ok(result.Value);
+    }
+
+    [HttpGet]
+    [SwaggerOperation(
+        "Gets all available samples.",
+        "If sample type is specified, samples are filtered by the type.")]
+    [SwaggerResponse(200,
+        Description = "Sample entries.", Type = typeof(List<SampleResponse>))]
+    [SwaggerResponse(400, Type = typeof(Result))]
+    public async Task<IActionResult> Get(SampleType? type = null)
+    {
+        var query = new GetSamplesQuery(type);
 
         var result = await sender.Send(query);
 

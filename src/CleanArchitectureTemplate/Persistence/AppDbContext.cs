@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Abstractions;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence;

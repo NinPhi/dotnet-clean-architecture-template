@@ -1,4 +1,5 @@
-﻿using Domain.Repositories;
+﻿using Application.Abstractions;
+using Domain.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Repositories;
@@ -12,6 +13,7 @@ public static class DependencyInjection
     {
         return services
             .RegisterDbContext(configuration)
+            .RegisterUnitOfWork()
             .RegisterRepositories();
     }
 
@@ -20,12 +22,21 @@ public static class DependencyInjection
     {
         var connection = configuration.GetConnectionString(nameof(AppDbContext));
 
-        return services.AddDbContext<AppDbContext>();
+        return services
+            .AddDbContext<AppDbContext>();
+    }
+
+    private static IServiceCollection RegisterUnitOfWork(
+        this IServiceCollection services)
+    {
+        return services
+            .AddTransient<IUnitOfWork, UnitOfWork>();
     }
 
     private static IServiceCollection RegisterRepositories(
         this IServiceCollection services)
     {
-        return services.AddTransient<ISampleRepository, SampleRepository>();
+        return services
+            .AddTransient<ISampleRepository, SampleRepository>();
     }
 }

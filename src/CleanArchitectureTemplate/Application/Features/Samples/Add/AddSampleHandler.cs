@@ -15,7 +15,7 @@ internal sealed class AddSampleHandler(
     public async Task<Result<SampleResponse>> Handle(
         AddSampleCommand request, CancellationToken cancellationToken)
     {
-        var sample = request.Adapt<Sample>();
+        var sample = request.Data.Adapt<Sample>();
 
         sampleRepository.Add(sample);
 

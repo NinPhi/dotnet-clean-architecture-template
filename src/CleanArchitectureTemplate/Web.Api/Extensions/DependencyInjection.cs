@@ -7,13 +7,13 @@ namespace Web.Api.Extensions;
 public static class DependencyInjection
 {
     public static IServiceCollection RegisterServices(
-        this IServiceCollection services)
+        this IServiceCollection services, IConfiguration configuration)
     {
         return services
             .RegisterWebApi()
             .RegisterApplication()
             .RegisterInfrastructure()
-            .RegisterPersistence();
+            .RegisterPersistence(configuration);
     }
 
     private static IServiceCollection RegisterWebApi(
@@ -21,7 +21,16 @@ public static class DependencyInjection
     {
         return services
             .AddEndpointsApiExplorer()
-            .AddSwaggerGen()
+            .AddSwaggerGen(opts =>
+            {
+                opts.EnableAnnotations();
+                opts.SwaggerDoc("v1", new()
+                {
+                    Version = "v1",
+                    Title = "Sample Web API",
+                    Description = "Sample Web API Documentation",
+                });
+            })
             .AddControllers()
             .Services;
     }

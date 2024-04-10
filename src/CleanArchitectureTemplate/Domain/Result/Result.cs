@@ -3,7 +3,7 @@
 public abstract class Result
 {
     public bool IsSuccess { get; protected set; }
-    public bool IsError => IsSuccess != true;
+    public bool IsError => IsSuccess is not true;
 
     public List<Error> Errors { get; protected set; } = new();
 

@@ -1,5 +1,5 @@
 ﻿namespace Domain.Abstractions;
 
-internal interface IRepository<TEntity>
+public interface IRepository<TEntity>
     : IReadRepository<TEntity>, IWriteRepository<TEntity>
     where TEntity : class, IEntity;

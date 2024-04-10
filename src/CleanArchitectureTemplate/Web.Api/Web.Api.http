@@ -1,6 +1,39 @@
 @Web.Api_HostAddress = https://localhost:5001
 
-GET {{Web.Api_HostAddress}}/
+### Get all samples
+GET {{Web.Api_HostAddress}}/api/samples
+Accept: application/json
+
+### Get all samples of type 1
+GET {{Web.Api_HostAddress}}/api/samples?type=1
+Accept: application/json
+
+### Get sample with id 1
+GET {{Web.Api_HostAddress}}/api/samples/1
+Accept: application/json
+
+### Add a new sample
+POST {{Web.Api_HostAddress}}/api/samples/
+Accept: application/json
+Content-Type: application/json
+
+{
+    "text": "Sample text",
+    "type": 1
+}
+
+### Update sample with id 1
+PUT {{Web.Api_HostAddress}}/api/samples/1
+Accept: application/json
+Content-Type: application/json
+
+{
+    "text": "Changed text",
+    "type": 2
+}
+
+### Delete sample with id 1
+DELETE {{Web.Api_HostAddress}}/api/samples/1
 Accept: application/json
 
 ###

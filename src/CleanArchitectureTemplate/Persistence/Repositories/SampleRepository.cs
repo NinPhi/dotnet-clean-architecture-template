@@ -1,9 +1,4 @@
-﻿using Domain.Entities;
-using Domain.Enums;
-using Domain.Repositories;
-using Microsoft.EntityFrameworkCore;
-
-namespace Persistence.Repositories;
+﻿namespace Persistence.Repositories;
 
 internal sealed class SampleRepository(AppDbContext dbContext) : ISampleRepository
 {

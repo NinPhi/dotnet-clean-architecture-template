@@ -1,9 +1,4 @@
-﻿using Application.Abstractions;
-using Application.Contracts.Samples;
-using Domain.Entities;
-using Domain.Repositories;
-using Domain.Result;
-using Mapster;
+﻿using Application.Contracts.Samples;
 
 namespace Application.Features.Samples.Add;
 

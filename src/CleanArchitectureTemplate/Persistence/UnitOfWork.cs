@@ -1,6 +1,4 @@
-﻿using Application.Abstractions;
-
-namespace Persistence;
+﻿namespace Persistence;
 
 internal class UnitOfWork(AppDbContext dbContext) : IUnitOfWork
 {

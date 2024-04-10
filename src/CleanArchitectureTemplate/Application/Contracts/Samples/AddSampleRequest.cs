@@ -1,7 +1,4 @@
-﻿using Domain.Enums;
-using System.ComponentModel.DataAnnotations;
-
-namespace Application.Contracts.Samples;
+﻿namespace Application.Contracts.Samples;
 
 public record AddSampleRequest
 {

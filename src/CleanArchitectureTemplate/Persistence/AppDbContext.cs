@@ -1,7 +1,4 @@
-﻿using Domain.Entities;
-using Microsoft.EntityFrameworkCore;
-
-namespace Persistence;
+﻿namespace Persistence;
 
 internal sealed class AppDbContext(
     DbContextOptions<AppDbContext> opts) : DbContext(opts)

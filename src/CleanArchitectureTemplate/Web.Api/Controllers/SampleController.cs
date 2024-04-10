@@ -1,9 +1,5 @@
 ﻿using Application.Contracts.Samples;
 using Application.Features.Samples.Add;
-using Domain.Result;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace Web.Api.Controllers;
 

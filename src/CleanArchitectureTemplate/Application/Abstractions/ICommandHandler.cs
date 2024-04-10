@@ -1,7 +1,4 @@
-﻿using Domain.Result;
-using MediatR;
-
-namespace Application.Abstractions;
+﻿namespace Application.Abstractions;
 
 internal interface ICommandHandler<in TCommand>
     : IRequestHandler<TCommand, Result>

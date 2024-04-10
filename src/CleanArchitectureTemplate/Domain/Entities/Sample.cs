@@ -1,8 +1,4 @@
-﻿using Domain.Abstractions;
-using Domain.Enums;
-using System.ComponentModel.DataAnnotations;
-
-namespace Domain.Entities;
+﻿namespace Domain.Entities;
 
 public class Sample : Entity
 {

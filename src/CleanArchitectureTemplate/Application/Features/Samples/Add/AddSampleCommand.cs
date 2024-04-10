@@ -1,5 +1,4 @@
-﻿using Application.Abstractions;
-using Application.Contracts.Samples;
+﻿using Application.Contracts.Samples;
 
 namespace Application.Features.Samples.Add;
 

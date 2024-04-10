@@ -18,10 +18,11 @@ public static class DependencyInjection
     private static IServiceCollection RegisterDbContext(
         this IServiceCollection services, IConfiguration configuration)
     {
-        var connection = configuration.GetConnectionString(nameof(AppDbContext));
+        var connection = configuration.GetConnectionString(nameof(AppDbContext))
+            ?? throw new($"Connection string of name {nameof(AppDbContext)} was not found in configuration. Unable to register {nameof(AppDbContext)}.");
 
         return services
-            .AddDbContext<AppDbContext>();
+            .AddDbContext<AppDbContext>(opts => opts.UseInMemoryDatabase(connection));
     }
 
     private static IServiceCollection RegisterUnitOfWork(

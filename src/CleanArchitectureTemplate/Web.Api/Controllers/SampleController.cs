@@ -1,9 +1,9 @@
 ﻿using Application.Contracts.Samples;
 using Application.Features.Samples.Add;
-using Application.Features.Samples.Get;
+using Application.Features.Samples.Delete;
+using Application.Features.Samples.GetMultiple;
 using Application.Features.Samples.GetById;
 using Application.Features.Samples.Update;
-using Domain.Enums;
 
 namespace Web.Api.Controllers;
 
@@ -15,6 +15,7 @@ public class SampleController(ISender sender) : ControllerBase
     [SwaggerOperation("Gets a sample by ID.")]
     [SwaggerResponse(200,
         Description = "Sample entry.", Type = typeof(SampleResponse))]
+    [SwaggerResponse(204, Description = "Sample was not found.")]
     [SwaggerResponse(400, Type = typeof(Result))]
     public async Task<IActionResult> GetById(long id)
     {
@@ -37,7 +38,7 @@ public class SampleController(ISender sender) : ControllerBase
     [SwaggerResponse(400, Type = typeof(Result))]
     public async Task<IActionResult> Get(SampleType? type = null)
     {
-        var query = new GetSamplesQuery(type);
+        var query = new GetMultipleSamplesQuery(type);
 
         var result = await sender.Send(query);
 
@@ -71,6 +72,22 @@ public class SampleController(ISender sender) : ControllerBase
     public async Task<IActionResult> Update(long id, UpdateSampleRequest request)
     {
         var command = new UpdateSampleCommand(id, request);
+
+        var result = await sender.Send(command);
+
+        if (result.IsError)
+            return BadRequest(result);
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    [SwaggerOperation("Deletes an existing sample.")]
+    [SwaggerResponse(204, Description = "Sample was deleted successfully or wasn't found.")]
+    [SwaggerResponse(400, Type = typeof(Result))]
+    public async Task<IActionResult> Delete(long id)
+    {
+        var command = new DeleteSampleCommand(id);
 
         var result = await sender.Send(command);
 

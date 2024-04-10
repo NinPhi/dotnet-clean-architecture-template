@@ -1,12 +1,12 @@
 ﻿using Application.Contracts.Samples;
 
-namespace Application.Features.Samples.Get;
+namespace Application.Features.Samples.GetMultiple;
 
-internal sealed class GetSamplesHandler(ISampleRepository sampleRepository)
-    : IQueryHandler<GetSamplesQuery, List<SampleResponse>>
+internal sealed class GetMultipleSamplesHandler(ISampleRepository sampleRepository)
+    : IQueryHandler<GetMultipleSamplesQuery, List<SampleResponse>>
 {
     public async Task<Result<List<SampleResponse>>> Handle(
-        GetSamplesQuery request, CancellationToken cancellationToken)
+        GetMultipleSamplesQuery request, CancellationToken cancellationToken)
     {
         List<Sample> samples;
 

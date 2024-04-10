@@ -1,4 +1,6 @@
 ﻿
+using Application.Services;
+
 namespace Application.Features.Samples.Update;
 
 internal sealed class UpdateSampleHandler(

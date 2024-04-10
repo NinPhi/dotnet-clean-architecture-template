@@ -1,4 +1,6 @@
-﻿namespace Persistence;
+﻿using Application.Services;
+
+namespace Persistence;
 
 internal class UnitOfWork(AppDbContext dbContext) : IUnitOfWork
 {

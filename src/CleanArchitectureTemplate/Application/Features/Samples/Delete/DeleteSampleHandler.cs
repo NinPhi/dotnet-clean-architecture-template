@@ -1,4 +1,6 @@
 ﻿
+using Application.Services;
+
 namespace Application.Features.Samples.Delete;
 
 internal sealed class DeleteSampleHandler(

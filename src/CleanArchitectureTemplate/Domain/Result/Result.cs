@@ -11,8 +11,8 @@ public abstract class Result
 
     public static Result<TValue> Ok<TValue>() => new();
     public static Result<TValue> Ok<TValue>(TValue value) => new(value);
-    public static Result<TValue> Bad<TValue>(string message) => new(new Error(message));
-    public static Result<TValue> Bad<TValue>(string message, string code) => new(new Error(message, code));
-    public static Result<TValue> Bad<TValue>(Error error) => new(error);
-    public static Result<TValue> Bad<TValue>(List<Error> errors) => new(errors);
+    public static Result<TValue> Fail<TValue>(string message) => new(new Error(message));
+    public static Result<TValue> Fail<TValue>(string message, string code) => new(new Error(message, code));
+    public static Result<TValue> Fail<TValue>(Error error) => new(error);
+    public static Result<TValue> Fail<TValue>(List<Error> errors) => new(errors);
 }

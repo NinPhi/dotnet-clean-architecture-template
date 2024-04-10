@@ -1,6 +1,6 @@
 ﻿using Application.Contracts.Samples;
 
-namespace Application.Features.Samples.GetAll;
+namespace Application.Features.Samples.Get;
 
 internal sealed class GetSamplesHandler(ISampleRepository sampleRepository)
     : IQueryHandler<GetSamplesQuery, List<SampleResponse>>

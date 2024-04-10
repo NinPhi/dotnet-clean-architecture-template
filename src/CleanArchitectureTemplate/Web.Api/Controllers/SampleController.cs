@@ -1,7 +1,8 @@
 ﻿using Application.Contracts.Samples;
 using Application.Features.Samples.Add;
-using Application.Features.Samples.GetAll;
+using Application.Features.Samples.Get;
 using Application.Features.Samples.GetById;
+using Application.Features.Samples.Update;
 using Domain.Enums;
 
 namespace Web.Api.Controllers;
@@ -61,5 +62,21 @@ public class SampleController(ISender sender) : ControllerBase
             return BadRequest(result);
 
         return Created($"api/samples/{result.Value!.Id}", result.Value);
+    }
+
+    [HttpPut("{id}")]
+    [SwaggerOperation("Updates an existing sample.")]
+    [SwaggerResponse(204, Description = "Sample was updated successfully.")]
+    [SwaggerResponse(400, Type = typeof(Result))]
+    public async Task<IActionResult> Update(long id, UpdateSampleRequest request)
+    {
+        var command = new UpdateSampleCommand(id, request);
+
+        var result = await sender.Send(command);
+
+        if (result.IsError)
+            return BadRequest(result);
+
+        return NoContent();
     }
 }

@@ -1,5 +1,8 @@
-﻿namespace Persistence;
+﻿using Microsoft.EntityFrameworkCore;
 
-internal sealed class AppDbContext
+namespace Persistence;
+
+internal sealed class AppDbContext(
+    DbContextOptions<AppDbContext> opts) : DbContext(opts)
 {
 }

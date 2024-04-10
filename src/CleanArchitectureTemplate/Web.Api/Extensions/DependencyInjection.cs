@@ -19,6 +19,10 @@ public static class DependencyInjection
     private static IServiceCollection RegisterWebApi(
         this IServiceCollection services)
     {
-        return services;
+        return services
+            .AddEndpointsApiExplorer()
+            .AddSwaggerGen()
+            .AddControllers()
+            .Services;
     }
 }

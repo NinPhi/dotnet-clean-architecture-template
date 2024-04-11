@@ -3,6 +3,6 @@
 global using Mapster;
 global using MediatR;
 
-global using Domain.Result;
+global using Domain.Primitives;
 
 global using Application.Abstractions;

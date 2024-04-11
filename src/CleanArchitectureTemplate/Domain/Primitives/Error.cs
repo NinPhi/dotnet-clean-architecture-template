@@ -1,4 +1,4 @@
-﻿namespace Domain.Result;
+﻿namespace Domain.Primitives;
 
 public class Error
 {

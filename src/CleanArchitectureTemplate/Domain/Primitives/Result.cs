@@ -1,9 +1,9 @@
-﻿namespace Domain.Result;
+﻿namespace Domain.Primitives;
 
 public abstract class Result
 {
     public bool IsSuccess { get; protected set; }
-    public bool IsError => IsSuccess is not true;
+    public bool IsFailure => IsSuccess is not true;
 
     public List<Error> Errors { get; protected set; } = new();
 

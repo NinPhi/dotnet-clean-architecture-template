@@ -3,6 +3,6 @@
 global using MediatR;
 global using Swashbuckle.AspNetCore.Annotations;
 
-global using Domain.Result;
+global using Domain.Primitives;
 
 global using Web.Api.Extensions;

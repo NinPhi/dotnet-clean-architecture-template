@@ -1,4 +1,4 @@
-﻿namespace Domain.Enums;
+﻿namespace Domain.Modules.Samples;
 
 public enum SampleType
 {

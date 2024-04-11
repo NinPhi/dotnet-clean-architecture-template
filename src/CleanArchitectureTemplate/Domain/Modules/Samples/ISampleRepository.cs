@@ -1,4 +1,4 @@
-﻿namespace Domain.Repositories;
+﻿namespace Domain.Modules.Samples;
 
 public interface ISampleRepository : IRepository<Sample>
 {

@@ -1,4 +1,6 @@
-﻿namespace Application.Contracts.Samples;
+﻿using Domain.Modules.Samples;
+
+namespace Application.Contracts.Samples;
 
 public record AddSampleRequest
 {

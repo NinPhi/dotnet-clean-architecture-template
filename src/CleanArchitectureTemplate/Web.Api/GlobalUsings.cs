@@ -4,6 +4,5 @@ global using MediatR;
 global using Swashbuckle.AspNetCore.Annotations;
 
 global using Domain.Result;
-global using Domain.Enums;
 
 global using Web.Api.Extensions;

@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities;
+﻿namespace Domain.Modules.Samples;
 
 public class Sample : Entity
 {

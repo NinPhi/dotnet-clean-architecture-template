@@ -4,6 +4,7 @@ using Application.Features.Samples.Delete;
 using Application.Features.Samples.GetMultiple;
 using Application.Features.Samples.GetById;
 using Application.Features.Samples.Update;
+using Domain.Modules.Samples;
 
 namespace Web.Api.Controllers;
 

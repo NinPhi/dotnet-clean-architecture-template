@@ -1,4 +1,6 @@
-﻿namespace Persistence.Repositories;
+﻿using Domain.Modules.Samples;
+
+namespace Persistence.Repositories;
 
 internal sealed class SampleRepository(AppDbContext dbContext) : ISampleRepository
 {

@@ -1,5 +1,6 @@
 ﻿using Application.Contracts.Samples;
 using Application.Services;
+using Domain.Modules.Samples;
 
 namespace Application.Features.Samples.Add;
 

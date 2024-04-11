@@ -1,4 +1,5 @@
 ﻿using Application.Services;
+using Domain.Modules.Samples;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Repositories;

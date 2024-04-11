@@ -13,8 +13,15 @@ public static class DependencyInjection
         return services
             .RegisterWebApi()
             .RegisterApplication()
-            .RegisterInfrastructure()
-            .RegisterPersistence(configuration);
+            .RegisterPersistence(configuration)
+            .RegisterInfrastructure();
+    }
+
+    public static IServiceCollection DecorateServices(
+        this IServiceCollection services)
+    {
+        return services
+            .DecorateWithInfrastructure();
     }
 
     private static IServiceCollection RegisterWebApi(

@@ -14,14 +14,24 @@ public static class DependencyInjection
             .RegisterCaching();
     }
 
+    public static IServiceCollection DecorateWithInfrastructure(
+        this IServiceCollection services)
+    {
+        return services
+            .DecorateCaching();
+    }
+
     private static IServiceCollection RegisterCaching(
         this IServiceCollection services)
     {
-        long sizeLimitInBytes = 1024 * 3;
+        return services.AddMemoryCache();
+    }
 
+    private static IServiceCollection DecorateCaching(
+        this IServiceCollection services)
+    {
         return services
-            .AddMemoryCache(opts => opts.SizeLimit = sizeLimitInBytes)
-            .Decorate<ISampleRepository, CachingSampleRepository>()
-            .Decorate<IUnitOfWork, CachingUnitOfWork>();
+            .Decorate<IUnitOfWork, CachingUnitOfWork>()
+            .Decorate<ISampleRepository, CachingSampleRepository>();
     }
 }

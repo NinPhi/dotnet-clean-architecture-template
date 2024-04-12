@@ -5,8 +5,17 @@ using Web.Api.Services;
 
 namespace Web.Api.Extensions;
 
+/// <summary>
+/// Extension methods for service registration.
+/// </summary>
 public static class DependencyInjection
 {
+    /// <summary>
+    /// Adds all services needed for the ASP.NET Web API application.
+    /// </summary>
+    /// <param name="services">Service collection.</param>
+    /// <param name="configuration">Application configuration.</param>
+    /// <returns>Service collection.</returns>
     public static IServiceCollection RegisterServices(
         this IServiceCollection services, IConfiguration configuration)
     {
@@ -17,6 +26,11 @@ public static class DependencyInjection
             .RegisterInfrastructure();
     }
 
+    /// <summary>
+    /// Decorates all services needed for the ASP.NET Web API application.
+    /// </summary>
+    /// <param name="services">Service collection.</param>
+    /// <returns>Service collection.</returns>
     public static IServiceCollection DecorateServices(
         this IServiceCollection services)
     {

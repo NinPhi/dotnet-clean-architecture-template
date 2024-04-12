@@ -3,8 +3,12 @@ using System.Diagnostics;
 
 namespace Web.Api.Services;
 
+/// <summary>
+/// Implementation of <see cref="IExceptionHandler"/> for globally handling exceptions in the ASP.NET Web API.
+/// </summary>
 public class GlobalExceptionHandler : IExceptionHandler
 {
+    /// <inheritdoc/>
     public async ValueTask<bool> TryHandleAsync(
         HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
     {

@@ -8,6 +8,10 @@ using Domain.Modules.Samples;
 
 namespace Web.Api.Controllers;
 
+/// <summary>
+/// Set of APIs that work with the <see cref="Sample"/> module.
+/// </summary>
+/// <param name="sender"><see cref="ISender"/> service.</param>
 [ApiController]
 [Route("api/samples")]
 public class SampleController(ISender sender) : ControllerBase

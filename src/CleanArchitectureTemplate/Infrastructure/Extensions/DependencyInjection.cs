@@ -5,8 +5,16 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure.Extensions;
 
+/// <summary>
+/// Extension methods for service registration.
+/// </summary>
 public static class DependencyInjection
 {
+    /// <summary>
+    /// Adds all services needed for the infrastructure layer.
+    /// </summary>
+    /// <param name="services">Service collection.</param>
+    /// <returns>Service collection.</returns>
     public static IServiceCollection RegisterInfrastructure(
         this IServiceCollection services)
     {
@@ -14,6 +22,11 @@ public static class DependencyInjection
             .RegisterCaching();
     }
 
+    /// <summary>
+    /// Decorates all services needed for the infrastructure layer.
+    /// </summary>
+    /// <param name="services">Service collection.</param>
+    /// <returns>Service collection.</returns>
     public static IServiceCollection DecorateWithInfrastructure(
         this IServiceCollection services)
     {

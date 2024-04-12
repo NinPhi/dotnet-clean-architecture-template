@@ -1,13 +1,18 @@
 ﻿using Domain.Modules.Samples;
-using Infrastructure.Caching.Constants;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace Infrastructure.Caching;
 
+/// <summary>
+/// Caching decorator for the <see cref="ISampleRepository"/> interface.
+/// </summary>
+/// <param name="sampleRepository"><see cref="ISampleRepository"/> service to be decorated.</param>
+/// <param name="cache">Cache service.</param>
 internal class CachingSampleRepository(
     ISampleRepository sampleRepository, IMemoryCache cache)
     : ISampleRepository
 {
+    /// <inheritdoc/>
     public async Task<List<Sample>> GetAllAsync()
     {
         var samples = await cache.GetOrCreateAsync(
@@ -21,6 +26,7 @@ internal class CachingSampleRepository(
         return samples ?? [];
     }
 
+    /// <inheritdoc/>
     public async Task<List<Sample>> GetAllOfTypeAsync(SampleType type)
     {
         var samples = await cache.GetOrCreateAsync(
@@ -34,6 +40,7 @@ internal class CachingSampleRepository(
         return samples ?? [];
     }
 
+    /// <inheritdoc/>
     public Task<Sample?> GetByIdAsync(long id)
     {
         var sample = cache.GetOrCreateAsync(
@@ -47,9 +54,12 @@ internal class CachingSampleRepository(
         return sample;
     }
 
+    /// <inheritdoc/>
     public void Add(Sample entity) => sampleRepository.Add(entity);
 
+    /// <inheritdoc/>
     public void Update(Sample entity) => sampleRepository.Update(entity);
 
+    /// <inheritdoc/>
     public void Remove(Sample entity) => sampleRepository.Remove(entity);
 }

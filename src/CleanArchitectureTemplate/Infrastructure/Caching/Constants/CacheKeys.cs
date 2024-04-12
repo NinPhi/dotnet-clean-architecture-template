@@ -1,5 +1,8 @@
 ﻿namespace Infrastructure.Caching.Constants;
 
+/// <summary>
+/// Cache key constants.
+/// </summary>
 internal static class CacheKeys
 {
     public const string AllSamples = nameof(AllSamples);

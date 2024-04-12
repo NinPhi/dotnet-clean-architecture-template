@@ -6,8 +6,17 @@ using Persistence.Repositories;
 
 namespace Persistence.Extensions;
 
+/// <summary>
+/// Extension methods for service registration.
+/// </summary>
 public static class DependencyInjection
 {
+    /// <summary>
+    /// Adds all services needed for the persistence layer.
+    /// </summary>
+    /// <param name="services">Service collection.</param>
+    /// <param name="configuration">Application configuration.</param>
+    /// <returns>Service collection.</returns>
     public static IServiceCollection RegisterPersistence(
         this IServiceCollection services, IConfiguration configuration)
     {

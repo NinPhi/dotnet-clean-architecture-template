@@ -9,7 +9,7 @@ namespace Application.Extensions;
 public static class DependencyInjection
 {
     /// <summary>
-    /// Adds all the services needed for the application layer.
+    /// Adds all services needed for the application layer.
     /// </summary>
     /// <param name="services">Service collection.</param>
     /// <returns>Service collection.</returns>

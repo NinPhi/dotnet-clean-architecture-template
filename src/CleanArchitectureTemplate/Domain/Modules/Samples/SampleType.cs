@@ -1,5 +1,8 @@
 ﻿namespace Domain.Modules.Samples;
 
+/// <summary>
+/// Type of samples. Does not have much meaning.
+/// </summary>
 public enum SampleType
 {
     None = 0,

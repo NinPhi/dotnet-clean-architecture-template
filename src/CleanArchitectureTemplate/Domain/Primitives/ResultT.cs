@@ -1,8 +1,15 @@
 ﻿namespace Domain.Primitives;
 
+/// <summary>
+/// Generic class representing a result of an operation.
+/// </summary>
 public class Result<TValue> : Result
 {
+    /// <summary>
+    /// Resulted value. Might be null.
+    /// </summary>
     public TValue? Value { get; private set; }
+
     public bool HasValue { get; private set; }
 
     internal Result()
